@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PolizaWebAPI.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="P:PolizaWebAPI.Infrastructure.Common.MongoConfiguration.ConnectionString">
+            <summary>
+            Cadena de conexion
+            </summary>
+        </member>
+        <member name="P:PolizaWebAPI.Infrastructure.Common.MongoConfiguration.DatabaseName">
+            <summary>
+            Base de datos 
+            </summary>
+        </member>
+        <member name="T:PolizaWebAPI.Infrastructure.Services.MemoryObjectCache">
+            <summary>
+            Implementación de caché en memoria utilizando IMemoryObjectCache.
+            </summary>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MemoryObjectCache.Add``1(System.String,``0,System.TimeSpan)">
+            <summary>
+            Agrega un objeto a la caché con una clave y tiempo de expiración específicos.
+            </summary>
+            <typeparam name="T">El tipo de objeto a almacenar en la caché.</typeparam>
+            <param name="key">La clave asociada al objeto en la caché.</param>
+            <param name="value">El objeto a almacenar en la caché.</param>
+            <param name="expirationTime">El tiempo de expiración del objeto en la caché.</param>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MemoryObjectCache.Get``1(System.String)">
+            <summary>
+            Obtiene un objeto de la caché utilizando la clave especificada.
+            </summary>
+            <typeparam name="T">El tipo de objeto a obtener de la caché.</typeparam>
+            <param name="key">La clave asociada al objeto en la caché.</param>
+            <returns>El objeto almacenado en la caché, o null si no se encuentra.</returns>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MemoryObjectCache.Remove(System.String)">
+            <summary>
+            Elimina un objeto de la caché utilizando la clave especificada.
+            </summary>
+            <param name="key">La clave asociada al objeto en la caché.</param>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MemoryObjectCache.GetAll``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Boolean)">
+            <summary>
+            Obtiene una colección de objetos de la caché que cumplan con un filtro opcional y se pueden ordenar opcionalmente.
+            </summary>
+            <typeparam name="T">El tipo de objeto a obtener de la caché.</typeparam>
+            <param name="filter">La expresión de filtro para aplicar a los objetos.</param>
+            <param name="orderBy">La expresión de ordenación para aplicar a los objetos.</param>
+            <param name="isDescending">Indica si la ordenación es descendente.</param>
+            <returns>Una enumeración de objetos que cumplen con el filtro y ordenación especificados.</returns>
+            <exception cref="T:System.InvalidOperationException">Se produce cuando la caché no está inicializada.</exception>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MemoryObjectCache.Update``1(System.String,``0,System.TimeSpan)">
+            <summary>
+            Actualiza un objeto en la caché. Si el objeto ya existe en la caché, se elimina y se agrega el nuevo valor.
+            </summary>
+            <typeparam name="T">El tipo de objeto a actualizar en la caché.</typeparam>
+            <param name="key">La clave asociada al objeto en la caché.</param>
+            <param name="newValue">El nuevo valor del objeto.</param>
+            <param name="expirationTime">El tiempo de expiración del objeto en la caché.</param>
+        </member>
+        <member name="T:PolizaWebAPI.Infrastructure.Services.MongoDbService">
+            <summary>
+            Servicio para interactuar con MongoDB.
+            </summary>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.#ctor(Microsoft.Extensions.Options.IOptions{PolizaWebAPI.Infrastructure.Common.MongoConfiguration},PolizaWebAPI.Application.Common.Interfaces.IMemoryObjectCache,Microsoft.Extensions.Options.IOptions{PolizaWebAPI.Infrastructure.Common.CacheConfiguration})">
+            <summary>
+            Constructor de la clase MongoDbService.
+            </summary>
+            <param name="mongoConfiguration">Configuración de MongoDB.</param>
+            <param name="cache">Caché de objetos en memoria.</param>
+            <param name="cacheConfiguration">Configuración de la caché.</param>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.Conectar">
+            <summary>
+            Establece la conexión con la base de datos de MongoDB.
+            </summary>
+            <returns>La instancia de IMongoDatabase que representa la conexión.</returns>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.Dispose(System.Boolean)">
+            <summary>
+            Realiza la liberación de recursos utilizados por la clase.
+            </summary>
+            <param name="disposing">Indica si se están liberando los recursos de manera explícita.</param>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.Dispose">
+            <summary>
+            Realiza la liberación de recursos utilizados por la clase.
+            </summary>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.Query``1(System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Realiza una consulta en una colección de MongoDB utilizando un filtro especificado.
+            </summary>
+            <typeparam name="T">Tipo de entidad de MongoDB.</typeparam>
+            <param name="collection">Nombre de la colección de MongoDB.</param>
+            <param name="filter">Expresión de filtro para la consulta.</param>
+            <returns>Una colección de entidades que cumplen con el filtro especificado.</returns>
+            <exception cref="T:System.ArgumentNullException">Se produce cuando el filtro es nulo.</exception>
+            <exception cref="T:System.Exception">Se produce cuando ocurre un error durante la consulta a la base de datos.</exception>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.Add``1(``0,System.String)">
+            <summary>
+            Agrega un documento a una colección de MongoDB.
+            </summary>
+            <typeparam name="T">Tipo de entidad del documento.</typeparam>
+            <param name="documento">El documento a agregar.</param>
+            <param name="collection">Nombre de la colección de MongoDB.</param>
+            <returns>El documento agregado.</returns>
+        </member>
+        <member name="M:PolizaWebAPI.Infrastructure.Services.MongoDbService.Update``1(``0,System.String)">
+            <summary>
+            Actualiza un documento en una colección de MongoDB.
+            </summary>
+            <typeparam name="T">Tipo de entidad del documento.</typeparam>
+            <param name="documento">El documento actualizado.</param>
+            <param name="collection">Nombre de la colección de MongoDB.</param>
+            <returns>El documento actualizado.</returns>
+        </member>
+    </members>
+</doc>

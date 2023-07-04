@@ -1,0 +1,261 @@
+{
+  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v10.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PolizaWebAPI API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/Clientes/credito": {
+      "post": {
+        "tags": [
+          "Clientes"
+        ],
+        "operationId": "Clientes_credito",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCreditoCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "WeatherForecast_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProblemDetails": {
+        "type": "object",
+        "additionalProperties": {
+          "nullable": true
+        },
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateCreditoCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fecha",
+          "tipo",
+          "tasa",
+          "valor",
+          "detalles"
+        ],
+        "properties": {
+          "numeroFabrica": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1.0,
+            "exclusiveMinimum": true
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1,
+            "nullable": false
+          },
+          "tipo": {
+            "type": "string",
+            "minLength": 1,
+            "nullable": false
+          },
+          "tasa": {
+            "type": "number",
+            "format": "decimal",
+            "minimum": 0.0,
+            "nullable": false
+          },
+          "valor": {
+            "type": "number",
+            "format": "decimal",
+            "minimum": 1.0,
+            "nullable": false
+          },
+          "cuotas": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0.0,
+            "exclusiveMinimum": true
+          },
+          "observacion": {
+            "type": "string"
+          },
+          "detalles": {
+            "type": "array",
+            "nullable": false,
+            "items": {
+              "$ref": "#/components/schemas/CreateDetalleCreditoCommand"
+            }
+          }
+        }
+      },
+      "CreateDetalleCreditoCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "concepto",
+          "valor",
+          "cuota"
+        ],
+        "properties": {
+          "concepto": {
+            "type": "string",
+            "maxLength": 3,
+            "minLength": 1,
+            "nullable": false
+          },
+          "valor": {
+            "type": "number",
+            "format": "decimal",
+            "minimum": 0.0,
+            "nullable": false
+          },
+          "cuota": {
+            "type": "number",
+            "format": "decimal",
+            "minimum": 0.0,
+            "nullable": false
+          }
+        }
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}

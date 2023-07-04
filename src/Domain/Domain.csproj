@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>PolizaWebAPI.Domain</RootNamespace>
+        <AssemblyName>PolizaWebAPI.Domain</AssemblyName>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <DocumentationFile>C:\Repositorios\FNB\PolizaWebAPI\src\Domain\Domain.xml</DocumentationFile>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <Optimize>False</Optimize>
+      <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
+      <Optimize>False</Optimize>
+      <NoWarn>1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <Optimize>False</Optimize>
+      <NoWarn>1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
+      <Optimize>False</Optimize>
+      <NoWarn>1591</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.0.0" />
+      <PackageReference Include="MongoDB.Bson" Version="2.20.0" />
+    </ItemGroup>
+
+</Project>

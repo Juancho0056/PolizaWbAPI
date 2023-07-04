@@ -1,0 +1,15 @@
+version: '3.8'
+
+volumes:
+  logs:
+    external: true
+
+services:
+  polizawebapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5025:5025
+    volumes:
+      - /logs:/logs

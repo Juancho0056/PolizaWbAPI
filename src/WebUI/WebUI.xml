@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebUI</name>
+    </assembly>
+    <members>
+        <member name="T:WebUI.Controllers.PolizaController">
+            <summary>
+            Controlador para la gestión de pólizas
+            </summary>
+        </member>
+        <member name="M:WebUI.Controllers.PolizaController.Create(PolizaWebAPI.Application.Features.Polizas.Commands.Create.CreatePolizaCommand)">
+            <summary>
+            Crea una nueva póliza
+            </summary>
+            <param name="command">Datos de la póliza a crear</param>
+            <returns>Respuesta de la acción</returns>
+        </member>
+        <member name="M:WebUI.Controllers.PolizaController.Get(PolizaWebAPI.Application.Features.Polizas.Queries.Get.GetPolizaRequest)">
+            <summary>
+            Obtiene una lista de pólizas que coinciden con los filtros especificados
+            </summary>
+            <param name="query">Filtros de búsqueda</param>
+            <returns>Lista de pólizas</returns>
+        </member>
+        <member name="T:WebUI.Swagger.ApplicationBuilderExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebUI.Swagger.ApplicationBuilderExtensions.ConfigureSwaggerUI(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebUI.Swagger.ApplicationBuilderExtensions.ConfigureCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebUI.Swagger.Filters.FileOperationFilter">
+            <summary>
+            Filter property File Swagger
+            </summary>
+        </member>
+        <member name="M:WebUI.Swagger.Filters.FileOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:WebUI.Swagger.ServiceCollectionExtension">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebUI.Swagger.ServiceCollectionExtension.ConfigureSwaggerDocument(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebUI.Swagger.ServiceCollectionExtension.AddCustomCors(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
