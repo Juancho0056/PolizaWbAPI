@@ -24,7 +24,7 @@ Este repositorio contiene una API web desarrollada con ASP.NET Core 6 y MongoDB 
 }
 Verificar la clave **MongoConfiguration** en el archivo **appsettings.json** para configurar la conexion a MongoDb.
 
-###Archivo de configuración log4net
+### Archivo de configuración log4net
 Se utiliza Log4Net para el registro de eventos. Puedes encontrar la configuración en el archivo log4net.config.
 
 xml
