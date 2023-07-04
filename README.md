@@ -4,6 +4,11 @@ Este repositorio contiene una API web desarrollada con ASP.NET Core 6 y MongoDB 
 
 <br/>
 
+## Usuario JWT Prueba
+usuario: administrator@localhost
+password: Password@123
+
+
 ## Tecnologias utilizadas
 
 * [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
