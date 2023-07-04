@@ -27,8 +27,6 @@ Verificar la clave **MongoConfiguration** en el archivo **appsettings.json** par
 ### Archivo de configuración log4net
 Se utiliza Log4Net para el registro de eventos. Puedes encontrar la configuración en el archivo log4net.config.
 
-xml
-Copy code
 <log4net>
   <!-- Configuración del registro de eventos -->
 </log4net>
